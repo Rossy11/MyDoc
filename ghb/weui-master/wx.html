@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/0.4.0/weui.min.css">
+    <style>
+        .btn{
+            width:25%;
+            margin-top:5%;
+        }
+    </style>
+</head>
+<body ontouchstart>
+<!-- 使用 WeUI -->
+<a href="weui-master/dist/example/index.html" class="weui_btn weui_btn_primary btn">按钮</a>
+<input type="date" class="weui_input">
+<input type="datetime-local" class="weui_input">
+<input type="number" class="weui_input">
+<div class="weui_msg">
+    <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+    <div class="weui_text_area">
+        <h2 class="weui_msg_title">操作成功</h2>
+        <p class="weui_msg_desc"></p>
+    </div>
+    <div class="weui_opr_area">
+        <p class="weui_btn_area">
+            <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
+            <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
+        </p>
+    </div>
+    <div class="weui_extra_area">
+        <a href="">查看详情</a>
+    </div>
+</div>
+
+<div class="page">
+    <div class="bd spacing">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="showToast">点击弹出</a>
+    </div>
+    <!--BEGIN toast-->
+    <div id="toast" class="weui_loading_toast" style="display:none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <div class="weui_loading">
+                <!-- :) -->
+                <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+            </div>
+            <p class="weui_toast_content">数据加载中</p>
+        </div>
+    </div>
+</div>
+
+
+<script src="jquery-3.2.0.min.js"></script>
+<script>
+//    var showToast=document.getElementById("showToast")
+//    var toast=document.getElementById("toast")
+//    showToast.onclick=function () {
+//        toast.style.display="block"
+//        setTimeout(function () {
+//            toast.style.display="none"
+//        },5000)
+//    }
+$().ready(function(){
+    $("#showToast").click(function(){
+        $("#toast").show();
+        setTimeout(function () {
+            $("#toast").hide()
+        },5000)
+    });
+})
+</script>
+</body>
+</html>

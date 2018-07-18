@@ -1,0 +1,183 @@
+// Global
+$side-gap: 12px;
+
+// Colors
+$color-background: #ebebeb;
+$color-main: #353535;
+$color-pub: #576b95;
+$color-content: #aaaaaa;
+$color-time: #bbbbbb;
+$color-line: #e5e5e5;
+$color-bottom: #999999;
+$color-green: #45c01a;
+$color-white: #ffffff;
+
+$color-apple: #4fab3d;
+$color-bostonblue: #3b91b4;
+$color-sanmarino: #456cac;
+$color-blueviolet: #6456b7;
+$color-deeplilac: #9955bb;
+$color-mulberry: #c54b8c;
+$color-darkcoral: #cd5b45;
+$color-rawsienna: #d27d46;
+$color-tussock: #c5884b;
+$color-turmeric: #cabb48;
+$color-wattle: #dcd747;
+$color-androidgreen: #a4c639;
+
+// Index
+$index-menu: 800;
+
+// Messages
+$message-padding-vertical: 8px;
+$message-icon-size: 48px;
+$message-icon-gap: 10px;
+$message-name-height: 26px;
+$message-name-fontsize: 16px;
+$message-content-height: 22px;
+$message-content-fontsize: 14px;
+$message-content-padding-right: 40px;
+$message-time-height: 20px;
+$message-time-fontsize: 12px;
+
+// Contacts
+$contact-padding-vertical: 8px;
+$contact-icon-size: 36px;
+$contact-icon-gap: 10px;
+$contact-name-height: 36px;
+$contact-name-fontsize: 16px;
+
+// Functions
+$function-padding-vertical: 12px;
+$function-icon-size: 24px;
+$function-icon-gap: 14px;
+$function-name-height: 24px;
+$function-name-fontsize: 16px;
+
+// Settings
+$setting-height: 48px;
+$setting-item-padding: 8px;
+
+// Group
+$group-title-height: 20px;
+$group-title-color: #888888;
+$group-title-size: 12px;
+$group-title-padding: 3px;
+
+@mixin oneline($height, $fontsize, $color) {
+    height: $height;
+    line-height: $height;
+    font-size: $fontsize;
+    color: $color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin icon($size) {
+    width: $size;
+    height: $size;
+    line-height: $size;
+    font-size: $size/1.5;
+    &.wx-yang {
+        font-size: $size;
+    }
+}
+
+@mixin icon-color($color) {
+    background: $color;
+    color: $color-white;
+    &.wx-yang {
+        color: $color;
+    }
+}
+
+@mixin physical-border-top($color) {
+    border-top: 1px solid $color;
+    .hairlines & {
+        border-top: .5px solid $color;
+    }
+}
+@mixin physical-border-right($color) {
+    border-right: 1px solid $color;
+    .hairline & {
+        border-right: .5px solid $color;
+    }
+}
+@mixin physical-border-bottom($color) {
+    border-bottom: 1px solid $color;
+    .hairline & {
+        border-bottom: .5px solid $color;
+    }
+}
+@mixin physical-border-left($color) {
+    border-left: 1px solid $color;
+    .hairline & {
+        border-left: .5px solid $color;
+    }
+}
+@mixin physical-border($color) {
+    @include physical-border-top($color);
+    @include physical-border-right($color);
+    @include physical-border-bottom($color);
+    @include physical-border-left($color);
+}
+
+body {
+    background: $color-background;
+}
+
+.wx-icon {
+    text-align: center;
+    display: block;
+    background-size: cover;
+    background-position: center;
+}
+
+.wx-icon-apple {
+    @include icon-color($color-apple);
+}
+.wx-icon-bostonblue {
+    @include icon-color($color-bostonblue);
+}
+.wx-icon-sanmarino {
+    @include icon-color($color-sanmarino);
+}
+.wx-icon-blueviolet {
+    @include icon-color($color-blueviolet);
+}
+.wx-icon-deeplilac {
+    @include icon-color($color-deeplilac);
+}
+.wx-icon-mulberry {
+    @include icon-color($color-mulberry);
+}
+.wx-icon-darkcoral {
+    @include icon-color($color-darkcoral);
+}
+.wx-icon-rawsienna {
+    @include icon-color($color-rawsienna);
+}
+.wx-icon-tussock {
+    @include icon-color($color-tussock);
+}
+.wx-icon-turmeric {
+    @include icon-color($color-turmeric);
+}
+.wx-icon-wattle {
+    @include icon-color($color-wattle);
+}
+.wx-icon-androidgreen {
+    @include icon-color($color-androidgreen);
+}
+.wx-yang {
+    background: transparent;
+    * {
+        display: block;
+    }
+}
+
+.wx-item {
+    display: block;
+    text-decoration: none;
+}

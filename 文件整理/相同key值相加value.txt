@@ -1,0 +1,23 @@
+var abc=[{
+        code: 1,
+        num: 20,
+    }, {
+        code: 1,
+        num: 10,
+    }, {
+        code: 2,
+        num: 15,
+    }]
+    var result={};
+    for(i=0;i<abc.length;i++){
+        if(result[abc[i].code]){
+            result[abc[i].code]+=abc[i].num;
+        }else{
+            result[abc[i].code]=abc[i].num;
+        }
+    }
+    var keyvalue=[];
+    for(var key in result){
+        keyvalue.push({code:key,num:result[key]})
+    }
+    console.log(keyvalue)

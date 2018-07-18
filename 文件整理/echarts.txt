@@ -1,0 +1,161 @@
+//**********************************14天时间区间处理***********************************
+    var seperator = "-";
+    //获取当前时间的前一天，格式：yyyy-MM-dd
+    var date = new Date();  //当前时间
+    date.setDate(date.getDate()-1); //前一天
+    var month = date.getMonth() + 1;  //当前月份
+    var strDate = date.getDate();  //当前日期
+    //月份和日期处理，小于10在前面补零
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var yesterdayDate = date.getFullYear() + seperator + month + seperator + strDate;  //当前时间前一天
+    // 获取14天前的时间，格式：yyyy-MM-dd
+    var date2 = new Date(date);
+    date2.setDate(date.getDate()-14); //14天前
+    var month2 = date2.getMonth() + 1; //月份
+    var strDate2 = date2.getDate();  //日期
+    //月份和日期处理，小于10在前面补零
+    if (month2 >= 1 && month2 <= 9) {
+        month2 = "0" + month2;
+    }
+    if (strDate2 >= 0 && strDate2 <= 9) {
+        strDate2 = "0" + strDate2;
+    }
+    var dateAgo = date2.getFullYear()+seperator+month2+seperator+strDate2;  //14天前
+
+//初始化图表数据
+    var TadvCost=[];//花费金额的数据
+    var TadvCostAll=[];//花费总金额的数据
+    var TadvTimes=[];//时间的数据
+    $http({
+        method: 'GET',
+        url: baseUrl + "/Datarecord/?create_price_time_0="+dateAgo+"&create_price_time_1="+yesterdayDate,
+        "headers": {
+            "Authorization": "JWT "+ajaxToken
+        }
+    }).then(function successCallback(res) {
+        //console.log(res.data);
+        $scope.echartAdv=res.data;
+        for(var i=0;i<$scope.echartAdv.length;i++){
+            TadvCost.push($scope.echartAdv[i].costmoney);
+            TadvTimes.push($scope.echartAdv[i].create_price_time.substring(0,10));
+        }
+        //console.log(TadvCost)
+        TinitEcharts()
+    }, function errorCallback(res) {
+
+    });
+
+    var colors = ['#ffa125', '#3cd3c0'];
+    function  TinitEcharts() {
+        // echarts图表
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            color: colors,
+            tooltip : {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show : false,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            legend: {
+                data:['花费金额(元)','花费总金额(元)']
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : TadvTimes //时间
+                }
+            ],
+            grid: {
+                left: '1%',
+                right: '1%',
+                bottom: '1%',
+                containLabel: true
+            },
+            yAxis : [
+                {
+                    type : 'value',
+                    name : '花费金额(元)',
+                    axisLabel : {
+                        formatter: '{value} '
+                    }
+                },
+                {
+                    type : 'value',
+                    name : '花费总金额(元)',
+                    axisLabel : {
+                        formatter: '{value} '
+                    }
+                }
+            ],
+            series : [
+                {
+                    smooth:true,//平滑
+                    name:'花费金额(元)',
+                    type:'line',
+                    data:TadvCost //花费金额
+                },
+                {
+                    smooth:true,//平滑
+                    name:'花费总金额(元)',
+                    type:'line',
+                    yAxisIndex: 1,
+                    data:TadvCost  //花费总金额
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+
+//点击广告下拉菜单
+    var advSelect; //选中的广告
+    var advAll;  //选中广告的text
+    var adMarkets; //所选广告对应的商圈
+    var advgId; //所选广告的id
+    $("#Talladv").on("change", function () {
+        advSelect = $("#Talladv").find("option:selected");
+        advAll=advSelect.text();
+        if(advAll!="全部广告"){
+            adMarkets=$scope.advCouple[advSelect[0].index-1].TradeMarkets;  //广告对应的商圈
+            advgId=$scope.advCouple[advSelect[0].index-1].id;  //所选广告的id
+        }
+        $scope.advgCircle=adMarkets;
+        $scope.$apply();
+        $http({
+            method: 'GET',
+            url: baseUrl + "/Datarecord/?ad_id="+advgId+"&create_price_time_0="+dateAgo+"&create_price_time_1="+yesterdayDate,
+            "headers": {
+                "Authorization": "JWT "+ajaxToken
+            }
+        }).then(function successCallback(res) {
+            TadvCost=[];//花费金额的数据
+            TadvCostAll=[];//花费总金额的数据
+            TadvTimes=[];//时间的数据
+            $scope.echartAdv=res.data;
+            for(var i=0;i<$scope.echartAdv.length;i++){
+                TadvCost.push($scope.echartAdv[i].costmoney);
+                TadvTimes.push($scope.echartAdv[i].create_price_time.substring(0,10));
+            }
+            console.log(TadvCost);
+            console.log(TadvTimes);
+            TinitEcharts()
+        }, function errorCallback(res) {
+
+        });
+    });

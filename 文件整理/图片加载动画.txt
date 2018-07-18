@@ -1,0 +1,10 @@
+//Õº∆¨º”‘ÿ
+    var t;
+    function  picLoading() {
+        var current = 0;
+	window.clearInterval(t);
+        t=window.setInterval(function(){
+            current = (current+45)%360;
+            document.getElementById("target").style.transform = 'rotate('+current+'deg)';
+        },200)
+    }

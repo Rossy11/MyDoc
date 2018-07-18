@@ -1,0 +1,23 @@
+$("#ETable").on("click", "tr", function () {//给tr或者td添加click事件
+        var data = $("#ETable").DataTable().row(this);//获取值的对象数据
+        var index = data[0][0];//获得点击的该行索引值
+        console.log(index)
+               }
+    });
+
+
+
+
+ var data = $("#ETable").DataTable().row(this);//获取值的对象数据
+ var index = data[0][0];//获得点击的该行索引值 
+        
+
+
+
+$('#Ttable_one tbody').on('click','tr td:nth-child(10)', function () {
+        var datass = $("#Ttable_one").DataTable().row(this);//获取值的对象数据
+        //console.log(datass)
+        var index = datass[0][0];//获得点击的该行索引值
+        console.log(index)
+        $("#TgenAlert").css("display","block");
+    } );

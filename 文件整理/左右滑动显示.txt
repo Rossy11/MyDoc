@@ -1,0 +1,38 @@
+		var count = Math.ceil(listItem.length / 4);//Ä£¿éÊýÄ¿
+                $("#bigDiv"+i).css("width",count*4.15+"rem");
+                if (count > 2) {
+                    $("#left" + i).val("0-0");
+                    $("#right" + i).val(count - 2 + "-" + count);
+                }
+                $("#allhuo_left" + i).click(function (e) {
+                    e.stopPropagation()
+                    var index = $(this)[0].id.replace("allhuo_left", "");
+                    var left = parseInt($("#left" + index).val().split("-")[0]);
+                    var total = parseInt($("#left" + index).val().split("-")[1]);
+                    var right=parseInt($("#right"+index).val().split("-")[0]);
+                    if (left > 0) {
+                        left--;
+                        right++;
+                        var bigD1 = $(this).next().children()
+                        bigD1.css("margin-left", -4.15 * left + "rem")
+                        bigD1.css("transition", "1s")
+                    }
+                    $("#left" + index).val(left+"-"+total);
+                    $("#right" + index).val(right+"-"+total);
+                })
+                $("#allhuo_right" + i).click(function (e) {
+                    e.stopPropagation()
+                    var index = $(this)[0].id.replace("allhuo_right", "");
+                    var right = parseInt($("#right" + index).val().split("-")[0]);
+                    var total = parseInt($("#right" + index).val().split("-")[1]);
+                    var left=parseInt($("#left"+index).val().split("-")[0]);
+                    if (right > 0) {
+                        right--;
+                        left++;
+                        var bigD1 = $(this).prev().children()
+                        bigD1.css("margin-left", -4.15 * left + "rem")
+                        bigD1.css("transition", "1s")
+                    }
+                    $("#left" + index).val(left+"-"+total);
+                    $("#right" + index).val(right+"-"+total);
+                })

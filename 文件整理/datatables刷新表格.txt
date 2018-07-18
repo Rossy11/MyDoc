@@ -1,0 +1,12 @@
+//自定义搜索传参
+            if (searchVal != "" && searchVal != undefined) {
+                param.search = searchVal;
+            }
+// 自定义搜索
+    var searchVal;//获取自定义搜索框的内容
+    $scope.TageSureSearch = function () {
+        searchVal = $("#Tagent_searchAdv").val();
+        //tag.settings()[0].ajax.data = {"search":searchVal};
+        tag.ajax.reload();
+
+    }

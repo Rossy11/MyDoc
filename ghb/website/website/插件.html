@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				border: #000 5px solid;
+				font-size: 36px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="ok" />
+		<input type="button" name="btn" id="btn1" value="ok1" />
+		<div id="box">测试文字</div>
+		<script src="js/jquery-3.2.0.min.js"></script>
+		<script src="js/jquery.test.js"></script>
+		<script type="text/javascript">
+			$(function(){
+//				$('#btn').AlertVal()
+//				$('#btn1').AlertVal()
+				$('#box').changeDiv({
+					bg:'pink',
+					color:'orange'
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+//判断本页是否只有一条数据，如果只有一条数据，删除后跳回上一页
+                           var  start = $("#Tperman_notable").dataTable().fnSettings()._iDisplayStart;
+					       var  total = $("#Tperman_notable").dataTable().fnSettings().fnRecordsDisplay();
+					       if((total-start)==1){
+						        if (start > 0) {
+						         $("#Tperman_notable").dataTable().fnPageChange( 'previous', true );
+						        }
+					       }

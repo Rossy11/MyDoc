@@ -1,0 +1,20 @@
+1¡¢		   var arr=res.data.results;
+                    Array.prototype.removeRepeatAttr=function(){
+                        var tmp={},a=this.slice();
+                        for(var i=j=0;i<a.length;i++){
+                            if(!tmp[a[i].adpinfo.adptitle]){
+                                tmp[a[i].adpinfo.adptitle]=!0;
+                                j++;
+                            }else{
+                                this.splice(j,1);
+                            }
+                        };
+                    }
+                    arr.removeRepeatAttr();
+
+2¡¢var arr = [1,2,3,44,44,11,2,3,333,3,3];
+    function remove(arr){
+        return Array.from(new Set(arr));
+    }
+    var single2 = remove(arr);
+    console.log(single2)

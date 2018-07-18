@@ -1,0 +1,5 @@
+"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            $scope.allNum+=aData.mount;
+            console.log($scope.allNum)
+            return nRow;
+        },

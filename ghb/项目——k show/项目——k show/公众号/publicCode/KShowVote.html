@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Mobile Devices Support end -->
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="expires" content="Wed,26 Feb 1997 08:21:57 GMT"/>
+    <!--safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta content="telephone=no" name="format-detection"/>
+    <!--设备1.3倍解析本网站-->
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=640px, user-scalable=no">
+    <!--引入自定义样式区-->
+    <link href="UIKit.css" rel="stylesheet" type="text/css">
+    <link href="KShowVote.css" rel="stylesheet" type="text/css">
+    <!--每个页面都添加 end-->
+    <title>歌唱大赛</title>
+</head>
+<body>
+<!--活动未开始-->
+<div id="pop" class="pop">
+    <div id="popHint" class="popHint">
+        投票未开始
+    </div>
+</div>
+<!--加载数据界面-->
+<div id="UIKitLoadingView" class="UIKit-loading-view">
+    <div id="UIKitLoadingContent" class="UIKit-loading-content">
+        <img id="UIKitloadingImg1" class="UIKit-loading-img" src="spinner.gif">
+        <div id="UIKitLoadingText1" class="UIKit-loading-text">请稍等</div>
+    </div>
+</div>
+<div id="UIKitLoadingViewC" class="UIKit-loading-viewC">
+    <div id="UIKitLoadingContentC" class="UIKit-loading-contentC">
+        <div class="voteSuccess">投票成功</div>
+        <div class="voteInfo">感谢您投出的宝贵一票</div>
+        <div class="voteAfter">请关注比赛结束后的幸运抽奖信息</div>
+        <div class="popLine"></div>
+        <div class="voteSure" onclick="hiddenPop()">好的</div>
+    </div>
+</div>
+<div class="voteCss">
+    <img src="" class="advertisement" id="advertisement">
+    <div class="lightGreyLine"></div>
+    <div class="leye" id="leyeHint"><div class="leyeCenter"><div class="left"><div class="leftLine"></div></div><div class="leyeTxt">上海乐野提供技术支持</div><div class="right"><div class="rightLine"></div></div></div></div>
+    <div class="titleInfo" id="titleInfo">给喜欢的TA投宝贵一票</div>
+    <div class="voteHandle" id="voteHandle">
+        <div class="voteItem" id="voteItem1">
+            <img src="No1.png" class="playerSign"/>
+            <div class="verticalLine"></div>
+            <div class="playerInfo">
+                <div class="playerInfoSure">
+                    <img src="" class="headerImg" id="header1"></img>
+                    <div class="playerName txtCss" id="name1"></div>
+                </div>
+                <div class="songName" id="song1"></div>
+            </div>
+            <div class="centerDiv centerAll">
+                <div class="centerBtn ">
+                    <button id="vote1" class="vote" onclick="vote(1)">投TA一票<img id="BtnImg1" src="" class="BtnImg">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="voteItem" id="voteItem2">
+            <img src="No2.png" class="playerSign"/>
+            <div class="verticalLine"></div>
+            <div class="playerInfo">
+                <div class="playerInfoSure">
+                    <img src="" class="headerImg" id="header2"></img>
+                    <div class="playerName txtCss" id="name2"></div>
+                </div>
+                <div class="songName" id="song2"></div>
+            </div>
+            <div class="centerDiv centerAll">
+                <div class="centerBtn ">
+                    <button id="vote2" class="vote" onclick="vote(2)">投TA一票<img id="BtnImg2" src="" class="BtnImg">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="voteItem" id="voteItem3">
+            <img src="No3.png" class="playerSign"/>
+            <div class="verticalLine"></div>
+            <div class="playerInfo">
+                <div class="playerInfoSure">
+                    <img src="" class="headerImg" id="header3"></img>
+                    <div class="playerName txtCss" id="name3"></div>
+                </div>
+                <div class="songName" id="song3"></div>
+            </div>
+            <div class="centerDiv centerAll">
+                <div class="centerBtn ">
+                    <button id="vote3" class="vote" onclick="vote(3)">投TA一票<img id="BtnImg3" src="" class="BtnImg">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="voteItemF" id="voteItem4">
+            <img src="No4.png" class="playerSign"/>
+            <div class="verticalLine"></div>
+            <div class="playerInfo">
+                <div class="playerInfoSure">
+                    <img src="" class="headerImg" id="header4"></img>
+                    <div class="playerName txtCss" id="name4"></div>
+                </div>
+                <div class="songName" id="song4"></div>
+            </div>
+            <div class="centerDiv centerAll">
+                <div class="centerBtn ">
+                    <button id="vote4" class="vote" onclick="vote(4)">投TA一票<img id="BtnImg4" src="" class="BtnImg">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="jquery-min.js"></script>
+<script src="KShowVote.js"></script>
+</html>

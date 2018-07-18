@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>比赛后台资源录入</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/match_resource.css"/>
+</head>
+<body>
+<!--header-->
+<div class="container-fluid header">
+    <!--logo-->
+    <div class="row">
+        <img class="title" src="img/title.png">
+    </div>
+    <!--background-->
+    <div class="row">
+        <img class="background" src="img/矢量智能对象.png">
+    </div>
+    <!--menu_bar-->
+    <div class="row menu_bar">
+        <div class="col-md-1 null"></div>
+        <div class="col-md-3 mid mid1 active">
+            <a href="javascript:void(0);"><img class="bar1" src="img/活动后台资源上传录入.png"></a>
+            <a href="#"><img class="bar2" src="img/活动后台资源上传录入1.png"></a>
+        </div>
+        <div class="col-md-3 mid mid2">
+            <a href="javascript:void(0);"><img class="bar3" src="img/比赛后台票数得分设定.png"></a>
+            <a href="#"><img class="bar4" src="img/比赛后台票数得分设定1.png"></a>
+        </div>
+        <div class="col-md-3 mid mid3">
+            <a href="javascript:void(0);"><img class="bar5" src="img/绑定活动设备.png"></a>
+            <a href="#"><img class="bar6" src="img/绑定活动设备1.png"></a>
+        </div>
+        <div class="col-md-1 null"></div>
+    </div>
+ </div>
+
+<!--section-->
+<div class="container-fluid center">
+    <!--uploading-->
+    <div class="row uploading">
+        <div class="uploading_center">
+            <!--uploading_up-->
+            <div class="row uploading_up clearfix">
+                <div class="col-md-4 uploading_img midd1">
+                    <img class="barr1" src="img/开场循环播放视频1.png">
+                    <img class="barr2" src="img/悬停状态1.png">
+                    <div class="col-md-4 file file1">
+                        <span>文件管理</span>
+                        <input type="file" name="files" class="upinput" id="fileVideo"
+                               onchange="upload(this,'v')" onclick="press('vNull')"/>
+                    </div>
+                </div>
+                <div class="col-md-4 uploading_img midd2">
+                    <img class="barr3" src="img/现场大屏主赞助商图2.png">
+                    <img class="barr4" src="img/悬停状态2.png">
+                    <div class="col-md-4 file file2">
+                        <span>文件管理</span>
+                        <input type="file" name="files" class="upinput" id="fileAvn"
+                               onchange="upload(this,'a')" onclick="press('aNull')"/>
+                    </div>
+                </div>
+                <div class="col-md-4 uploading_img midd3">
+                    <img class="barr5" src="img/圆角矩形-5-2.png">
+                    <img class="barr6" src="img/悬停状态3.png">
+                    <div class="col-md-4 file file3">
+                        <span>文件管理</span>
+                        <input type="file" name="files" class="upinput" id="filePho"
+                               onchange="upload(this,'p')" onclick="press('pNull')"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--uploading_down-->
+        <div class="row uploading_down">
+            <div class="row jdt clearfix">
+                <!--<div class="progressInfo">-->
+                    <!--<div class="progressInfoCss centerAll">-->
+                        <!--<div class="progressInfoS">-->
+                <div class="col-md-3 progressHint one upload_jd">上传进度：</div>
+                <div class="col-md-3 progressParent one upload_tiao">
+                    <p class="progress " id="progress"></p>
+                    <!--<span class="progressNum" id="progressNum">0%</span>-->
+                </div>
+                <!--上传失败成功-->
+                <div class="col-md-3 progressHint suc one" id="hint">ff</div>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-3 jdt_float one jdt3">
+                    <img class="jdt4" src="img/提交1.png">
+                    <button class="btn jdt_btn submit" onclick="submit()" id="submit"></button>
+                </div>
+            </div>
+            <div class="row warning progressInfoScore" id="hintScorem">
+                 jj
+            </div>
+        </div>
+    </div>
+
+    <!--set_vote-->
+    <div class="row set_vote">
+        <div class="row vote">
+            <!--vote_title-->
+            <div class="row vote_title">
+                比赛总得分公式：总分=歌曲评分+每票得分*票数
+            </div>
+
+            <!--grade-->
+            <div class="row grade">
+                <div class="row vote1 clearfix">
+                    <div class="col-md-4 jdt_float vote1_in">
+                        <div class="row">
+                            <div class="col-md-6 rangeLeft" id="voteScore">300分</div>
+                            <div class="col-md-6 rangeDivCssSecond clearfix">
+                                <div class="numleft three" >0</div>
+                                <div class="rangeDivCSS three" id="rangeWidthS" tabindex="3" onkeydown="voteKeyDown(event)">
+                                    <div class="rangeDivBack" id="rangeWidth">
+                                        <div class="rangeDivLine" id="rangeVoteS"></div>
+                                    </div>
+                                    <!--滑动三角-->
+                                    <div class="rangeMove" id="scoreVoteS"></div>
+                                </div>
+                                <div class="numright four">1000</div>
+                            </div>
+                        </div>
+                        <div class="row titleLeft">
+                            <div class="col-md-2 blueDiv"><img src="img/FA45I(DXZK110CYG]@_C2RJ.png"></div>
+                            <div class="col-md-4 hintTitleLeft">每票所占分数</div>
+                            <div class="col-md-6 two"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row warning1 clearfix">
+                    <div class="col-md-8 jdt_float progressInfoScore jdt5" id="hintScore">
+                        提示
+                    </div>
+                    <div class="col-md-4 jdt_float jdt6">
+                        <img class="jdt4" src="img/提交1.png">
+                        <button class="btn submitScore jdt_btn" onclick="submitScore()" id="submitScore"></button>
+                    </div>
+                </div>
+
+                <div class="row kongbai"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--binding-->
+    <div class="row binding">
+        <div class="row binding_mid">
+            <div class="row binding1">
+                拖拽右侧MID号与左侧机器序列号进行匹配绑定
+            </div>
+            <div class="row binding2 clearfix">
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45I(DC2RJ.png"></div>
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45I(DXZ33333333K110CYG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao1 jdt_float"><span></span></div>
+            </div>
+            <div class="row binding2 clearfix">
+                <div class="col-md-4 hao jdt_float"><img src="img/FA(DXZK110CYG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45I(DXZ33333333K110CYG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao1 jdt_float"></div>
+            </div>
+            <div class="row binding2 clearfix">
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45YG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45I(DXZ33333333K110CYG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao1 jdt_float"></div>
+            </div>
+            <div class="row binding2 clearfix">
+                <div class="col-md-4 hao jdt_float"><img src="img/]@_C2RJ.png"></div>
+                <div class="col-md-4 hao jdt_float"><img src="img/FA45I(DXZ33333333K110CYG]@_C2RJ.png"></div>
+                <div class="col-md-4 hao1 jdt_float"></div>
+            </div>
+            <div class="row  binding3 clearfix">
+                <div class="col-md-6 jdt_float jdt7">
+                    提示
+                </div>
+                <div class="col-md-4 jdt_float jdt8">
+                    <img class="jdt4" src="img/提交1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--footer-copyright-->
+<div class="container-fluid">
+    <div class="row">
+        <img class="background" src="img/版本号：V1.3.0.png">
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/match_resource.js"></script>
+<script type="text/javascript" src="js/uploadRes.js"></script>

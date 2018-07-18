@@ -1,0 +1,27 @@
+现在要实现的效果就是，在主要内容不足以铺满整个屏幕的情况下，footer居于屏幕低部显示，使得整个页面占满屏幕。而当主要内容高度大于整个屏幕高度的时候，footer跟随主要内容进行显示；
+
+方法：
+html
+[html] 
+<div class="page">  
+    主要页面  
+</div>  
+<footer>底部</footer>  
+css
+[css] view plain copy
+html,body{  
+    height: 100%;  
+    margin: 0;  
+    padding: 0;  
+}  
+.page{  
+    box-sizing: border-box;/*为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制*/  
+    min-height: 100%;  
+    padding-bottom: 300px;  
+}  
+footer{  
+    height: 300px;  
+    margin-top: -300px;  
+    opacity: 0.5; 
+}
+主要内容放在page内部，page最小高度为100%（注意这里html，body高度也要设为100%）。page有个padding-bottom大小为footer的高度（按需要调整），最重要的一点page的box-sizing:border-box，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制，也就是说page的padding-bottom也会设定在min-height：100%内。而footer的margin-top为负的自身高度，把自己拉到page的padding-bottom空白块上，从而达到需求效果。 

@@ -1,0 +1,20 @@
+//移除数组中元素的方法
+    Array.prototype.removeByValue = function(val) {
+        for(var i=0; i<this.length; i++) {
+            if(this[i] == val) {
+                this.splice(i, 1);
+                break;
+            }
+        }
+    };
+
+    //删除tableList中的json
+    function deleteData(name) {
+        var persons = tableList;
+        for (var i = 0; i < persons.length; i++) {
+            var cur_person = persons[i];
+            if (cur_person.device == name) {
+                tableList.splice(i, 1);
+            }
+        }
+    }

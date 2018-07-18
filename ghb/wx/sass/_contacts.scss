@@ -1,0 +1,21 @@
+.wx-contacts {
+    background: $color-white;
+    list-style: none;
+    padding: 0 $side-gap;
+    > .wx-item {
+        padding: $contact-padding-vertical 0;
+        @include physical-border-top($color-line);
+        //border-top: 1px solid $color-line;
+        &:first-child {
+            border-top: none;
+        }
+        .wx-icon {
+            @include icon($contact-icon-size);
+            margin-right: $contact-icon-gap;
+            float: left;
+        }
+        .wx-name {
+            @include oneline($contact-name-height, $contact-name-fontsize, $color-main);
+        }
+    }
+}

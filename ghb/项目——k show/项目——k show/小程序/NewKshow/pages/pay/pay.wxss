@@ -1,0 +1,108 @@
+.payDetail {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.scrollCss {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.itemCssInfo {
+  width: 100%;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemCss {
+  width: 95%;
+  height: 150rpx;
+  display: flex;
+  font-size: 35rpx;
+  font-weight: 550;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeCss {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  letter-spacing: 4rpx;
+  font-weight: 600;
+}
+
+.payCss {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.money {
+  width: 100rpx;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 30rpx;
+  letter-spacing: 8rpx;
+  font-weight: 600;
+}
+
+.payBtn {
+  width: auto;
+  height: auto;
+  border-radius: 6rpx;
+  background: red;
+  color: white;
+  padding: 14rpx 23rpx;
+  letter-spacing: 10rpx;
+  margin-right: 25rpx;
+  font-weight: 600;
+  box-shadow: -5rpx 5rpx 5rpx #888;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: gainsboro;
+}
+
+.chooseCss {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.userHint {
+  width: 95%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+

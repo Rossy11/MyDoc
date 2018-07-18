@@ -1,0 +1,7 @@
+	var b = {};
+        result.forEach(function (obj) {
+            var array = b[obj['time']] || [];
+            array.push(obj);
+            b[obj['time']] = array;
+        });
+        console.log(b);

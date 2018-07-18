@@ -1,0 +1,23 @@
+<div class="allList" id="allList" ng-model="tableMark">
+                <div class="listInfo" id="listInfo" ng-repeat="x in backInfo" ng-init="tableMark = $index+1">
+                    <div class="listH" style="position: relative" ng-if="x.length==1">
+                        <div style="position: absolute;top: 0px;left: -40px;width: 40px;text-align: center"  >{{ tableMark }}</div>
+                        <input type="checkbox" style="position: absolute;top: 15px;left: 10px;z-index: 1"  ng-checked="checkedstatus2" class="checkbox" ng-click="checkOne()">
+                        <div class="info11" id="info1">{{ x[0].deviceid }}</div>
+                        <div class="info21">{{ x[0].reason }}</div>
+                        <div class="info31">{{ x[0].phonemenon }}</div>
+                        <div class="info41">{{ x[0].time }}</div>
+                        <div class="info51">{{ (x[0].alivetime/60).toFixed(2) }}</div>
+                    </div>
+                    <div class="listH" style="position: relative" ng-repeat="y in x" ng-if="x.length>1">
+                        <div  ng-class="checkSign(x,$index)==1?'itemCssF':(checkSign(x,$index)==2?'itemCssS':'itemCssT')">{{tableMark}}</div>
+
+                        <input type="checkbox" style="position: absolute;top: 15px;left: 10px;z-index: 1"  ng-checked="checkedstatus2" class="checkbox" ng-click="checkOne()">
+                        <div class="info11" id="info1">{{ y.deviceid }}</div>
+                        <div class="info21">{{ y.reason }}</div>
+                        <div class="info31">{{ y.phonemenon }}</div>
+                        <div class="info41">{{ y.time }}</div>
+                        <div class="info51">{{ (y.alivetime/60).toFixed(2) }}</div>
+                    </div>
+                </div>
+            </div>

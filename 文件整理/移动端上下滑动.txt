@@ -1,0 +1,17 @@
+//滑动处理
+    var mybody = document.getElementsByTagName('body')[0];
+    var startX, startY, moveEndX, moveEndY, X, Y;
+    mybody.addEventListener('touchstart', function (e) {
+        startY = e.touches[0].pageY;
+    });
+    mybody.addEventListener('touchmove', function (e) {
+        moveEndY = e.changedTouches[0].pageY;
+        Y = moveEndY - startY;
+    });
+    mybody.addEventListener('touchend', function (e) {
+        if (Y > 50) { //向下滑
+
+        } else if (Y < -50) { //向上滑
+
+        }
+    });

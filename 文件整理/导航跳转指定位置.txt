@@ -1,0 +1,27 @@
+<div id="container">
+     <p id="p1">div1</p>
+     <p id="p2">div2</p>
+     <p id="p3">div3</p>
+</div>
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+
+//js
+$(document).ready(function() {
+  $("#p1").click(function() {
+    $("html, body").animate({
+      scrollTop: $("#div1").offset().top }, {duration: 500,easing: "swing"});
+    return false;
+  });
+  $("#p2").click(function() {
+    $("html, body").animate({
+      scrollTop: $("#div2").offset().top }, {duration: 500,easing: "swing"});
+    return false;
+  });
+  $("#p3").click(function() {
+    $("html, body").animate({
+      scrollTop: $("#div3").offset().top }, {duration: 500,easing: "swing"});
+    return false;
+  });
+});

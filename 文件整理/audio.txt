@@ -1,0 +1,26 @@
+//当前时间
+function setCurTime() {
+    var currentTime = document.getElementById("audio").currentTime;
+    $("#curTime").html(setTime(currentTime));
+}
+setInterval(function(){setCurTime()},500);
+//总时长
+// 获取歌曲总时间
+function getTotalTime(){
+    timer = setInterval(function(){
+        var durationTime = document.getElementById("audio").duration;
+        if(!isNaN(durationTime)){
+            $("#totalTime").html(setTime(durationTime));
+            clearInterval(timer);
+        }
+    },500);
+}
+getTotalTime();
+// 时间格式化
+function setTime(x){
+    var m = Math.floor(x/60);
+    var s = x.toFixed(0)-m*60;
+    m = m<10?"0"+m:m;
+    s = s<10?"0"+s:s;
+    return m+":"+s;
+}

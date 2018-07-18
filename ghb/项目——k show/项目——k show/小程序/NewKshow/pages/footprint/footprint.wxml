@@ -1,0 +1,62 @@
+<view class="seekDetail">
+  <view class="seekDetailInfo">
+    <scroll-view scroll-y bindscrolltolower="scrolltolower" class="scrollSongCss">
+    <view class="seekInfo">
+      <view class="seekView">
+        <image src="../../image/new_seek.png" class="seekImg" bindtap="seek"></image>
+        <input placeholder="搜索历史歌曲" value="{{value}}" type="text" class="seekInput" bindchange="inputValue" id="seeking" maxlength="10" />
+        <image src="../../image/seekDelete.png" class="seekDelete" bindtap="seekDelete"></image>
+      </view>
+      <view class="seeking" bindtap="seek">搜索</view>
+    </view>
+    
+
+      <!--未找到搜索项-->
+      <view class="notfind" style="display:{{typeShow}}">未找到搜索项</view>
+      <view class="notSingCss" wx:if="{{songShow}}">
+        <view class="notSing">你还没有唱歌记录哦~
+        </view>
+        <view class="notSing">小K为你精心推荐(p≧w≦q)
+        </view>
+      </view>
+      <block wx:for="{{dataList}}" wx:for-index="index">
+        <view class="songCard" bindtap="songDetail" data-songid="{{item.songid}}" data-singerurl="{{item.imageurl}}" data-songname="{{item.songname}}" data-singername="{{item.singername}}">
+          <view class="singerImgInfo">
+            <image src="{{item.imageurl}}" class="singerImg" mode="scaleToFill" />
+            <image src="../../image/new_ranking.png" class="ranking" mode="scaleToFill"></image>
+            <image src="../../image/new_listen.png" class="listen" mode="scaleToFill"></image>
+          </view>
+          <view class="singInfo">
+            <view class="singerInfo">
+              <view class="songName">{{item.songname}}</view>
+              <view class="singerName">-{{item.singername}}</view>
+            </view>
+            <view class="auditionerInfo" style="visibility:{{mySong?'visible':'hidden'}}">
+              <view class="auditionerInfoDetail">
+                <view class="auditionerName">{{nickName}}</view>
+                <view class="createTime">创建于 {{createTime[index]}}</view>
+              </view>
+              <image src="{{userUrl}}" class="auditionerImg"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <image src="../../image/noneBack.png" mode="scaleToFill" class="emptyView" style="height:{{isShowPlay?'200rpx':'80rpx'}}"></image>
+    </scroll-view>
+  </view>
+</view>
+
+<!--音乐播放-->
+<view class="singInfoDetailApp" style="display:{{isShowPlay?'flex':'none'}}">
+  <progress percent="{{songPercent}}" stroke-width="2" color="red" class="progressSingApp" />
+  <view class="musicPlayApp">
+    <image src="{{imgPlayUrl}}" mode="scaleToFill" class="singerImgApp" />
+    <view class="nameInfoApp">
+      <view class="songNameBtApp">{{songNamePlay}}</view>
+      <view class="singerNameBtApp">{{singerName}}</view>
+    </view>
+    <view class="imgInfoApp">
+      <image src="{{playImg}}" class="{{play?'playImgApp':'stopImgApp'}}" catchtap="controlMusic"></image>
+    </view>
+  </view>
+</view>

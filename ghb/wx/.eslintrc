@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "jquery": true,
+        "es6": true
+    },
+    "globals": {
+        "riot": true,
+        "routeGuard": true,
+        "_": true,
+        "s": true,
+        "restful": true,
+        "api": true,
+        "bootbox": true,
+        "async": true,
+        "settitle": true,
+        "BMap": true
+    },
+    "rules": {
+        "quotes": [1, "single"],
+        "strict": [2, "never"]
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Mobile Devices Support end -->
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="expires" content="Wed,26 Feb 1997 08:21:57 GMT"/>
+    <!--safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta content="telephone=no" name="format-detection"/>
+    <!--设备1.3倍解析本网站-->
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=640px, user-scalable=no">
+    <!--引入自定义样式区-->
+    <link href="UIKit.css" rel="stylesheet" type="text/css">
+    <link href="selectSong.css" rel="stylesheet" type="text/css">
+    <!--每个页面都添加 end-->
+    <title>选歌参赛</title>
+</head>
+<body>
+<!--加载数据界面-->
+<div id="UIKitLoadingView" class="UIKit-loading-view">
+    <div id="UIKitLoadingContent" class="UIKit-loading-content">
+        <img id="UIKitloadingImg1" class="UIKit-loading-img" src="spinner.gif">
+        <div id="UIKitLoadingText1" class="UIKit-loading-text">请稍等</div>
+    </div>
+</div>
+<div class="AllDiv">
+    <div class="All" id="all">
+        <div class="selectBack" id="selectBack">
+            <div class="selectCss centerAll">
+                <div class="selectDiv">
+                    <div class="seekDIvS">
+                        <div class="seekDiv centerAll" onclick="seek()">
+                            <div class="seekImg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" placeholder="请输入歌曲/歌手名" class="selectInput" id="selectSongInput"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="matchSong" id="applyPop">
+            <div class="backLine_2"></div>
+            <div class="backLine_4"></div>
+            <div class="songTitle">
+                <div class="songTxt">参赛曲目</div>
+            </div>
+            <div class="greyLine"></div>
+            <div class="songItem">
+                <div class="SongBackImg"></div>
+                <div class="singerInfo">
+                    <div class="songName" id="songNameP"></div>
+                    <div class="singerName" id="singerNameP"></div>
+                </div>
+            </div>
+        </div>
+        <div class="backLine"></div>
+        <div class="songInfo">
+            <div class="matchSongAll" id="matchSongAll">
+                <div class="songTitle">
+                    <div class="songTxt">比赛曲目</div>
+                </div>
+            </div>
+            <div class="greyLine"></div>
+            <div class="songListDiv" id="songListDiv">
+                <div class="songList" id="songList">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="chooseSong" class="UIKit-loading-viewCSure">
+    <div class="UIKit-loading-contentCSure">
+        <div class="chooseSuccess">确定要更改参赛歌曲吗？</div>
+        <div class="chooseInfo" id="songSure">《》将更改为参赛歌曲。</div>
+        <div class="choosePopLine"></div>
+        <div class="handlerCss">
+            <div class="chooseCancel" onclick="cancel()">取消</div>
+            <div class="verticalLine"></div>
+            <div class="chooseSure" onclick="sure()">确定</div>
+        </div>
+    </div>
+</div>
+<div id="apply" class="UIKit-loading-viewC">
+    <div id="UIKitLoadingContentC" class="UIKit-loading-contentC">
+        <div class="chooseSuccess">报名成功!</div>
+        <div class="chooseInfo">比赛前您仍可通过本页面变更参赛歌曲</div>
+        <div class="choosePopLine"></div>
+        <div class="applySure" onclick="hiddenPop()">好的</div>
+    </div>
+</div>
+<!--活动未开始-->
+<div id="pop" class="pop">
+    <div id="popHint" class="popHint">
+        报名未开始
+    </div>
+</div>
+<div id="applyOver" class="UIKit-loading-over" onclick="hiddenPopOver()">
+    <div id="UIKitLoadingContentC" class="UIKit-loading-contentC">
+        <div class="choosev" onclick="hiddenPopOverTitle(event)" id="error">当前不支持报名</div>
+
+        <div class="choosevPopLine"></div>
+        <div class="applySure" onclick="hiddenPopOver()">好的</div>
+    </div>
+</div>
+</body>
+
+<script src="jquery-min.js"></script>
+<script src="dropload.min.js"></script>
+<script src="selectSong.js"></script>
+</html>

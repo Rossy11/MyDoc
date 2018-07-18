@@ -1,0 +1,28 @@
+.wx-messages {
+    list-style: none;
+    > .wx-item {
+        background: $color-white;
+        padding: $message-padding-vertical $side-gap;
+        &:not(:first-child) {
+            @include physical-border-top($color-line);
+        }
+        .wx-icon {
+            @include icon($message-icon-size);
+            margin-right: $message-icon-gap;
+            float: left;
+        }
+        .wx-name {
+            @include oneline($message-name-height, $message-name-fontsize, $color-main);
+            margin-right: 60px;
+        }
+        .wx-content {
+            @include oneline($message-content-height, $message-content-fontsize, $color-content);
+            margin-right: 40px;
+        }
+        .wx-time {
+            @include oneline($message-time-height, $message-time-fontsize, $color-time);
+            float: right;
+        }
+    }
+}
+

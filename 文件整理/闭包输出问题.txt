@@ -1,0 +1,14 @@
+    function f1(){
+        for(var i = 0; i < 10; i++) {
+            (function (e) {
+                setTimeout(function() {
+                    console.log(e); //0-9
+                }, 0);
+            })(i)
+            console.log(i); //0-9最先执行
+            setTimeout(function () {
+                console.log(i); //10个10
+            },0)
+        }
+    }
+    f1();

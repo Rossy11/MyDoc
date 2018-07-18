@@ -1,0 +1,3 @@
+        var newList=$scope.bussinessList[2];
+        $("#table").dataTable().fnClearTable();   //将数据清除
+        $("#table").dataTable().fnAddData(newList);  //重新绑定table数据

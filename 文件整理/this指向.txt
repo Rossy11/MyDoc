@@ -1,0 +1,13 @@
+    //thisµÄÖ¸Ïò
+    var obj = {
+        name: "mlxggg",
+        say: function () {
+            var self = this;
+            setTimeout(function () {
+                console.log(self); //obj
+                console.log(this); //window
+                console.log(self.name) //mlxggg
+            }, 0)
+        }
+    }
+    obj.say();

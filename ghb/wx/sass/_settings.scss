@@ -1,0 +1,17 @@
+.wx-settings {
+    background: $color-white;
+    padding: 0 $side-gap;
+    > .wx-item {
+        padding: 0 $setting-item-padding;
+        &:not(:first-child) {
+            @include physical-border-top($color-line);
+        }
+        .wx-content {
+            @include oneline($setting-height, $message-content-fontsize, $color-content);
+            float: right;
+        }
+        .wx-name {
+            @include oneline($setting-height, $message-name-fontsize, $color-main);
+        }
+    }
+}

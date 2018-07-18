@@ -1,0 +1,19 @@
+	//点击全选
+            $scope.check = false;
+            $("#checkAll").on("click",function () {
+                $scope.check = !$scope.check;
+                $(".checks").prop("checked", $scope.check);
+                if ($(".checks").prop("checked")) {
+                    
+                }else{
+                    
+                }
+            });
+            //点击复选框
+            $(".checks").on("click",function () {
+                if ($(this).prop("checked")) {
+                   
+                }else{
+                    
+                }
+            });

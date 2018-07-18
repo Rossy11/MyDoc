@@ -1,0 +1,15 @@
+//获取7天时间日期
+    var dates=[];
+    var datestr;
+    function getDate() {
+        var myDate = new Date();
+        myDate.setDate(myDate.getDate()-6); //前7天
+        for (var i = 0; i < 7; i++) {
+            datestr=Number(myDate.getMonth()) + 1 + "-" + myDate.getDate();
+            dates.push(datestr);
+            myDate.setTime(myDate.getTime() + 1000*60*60*24);
+            //console.log(datestr);
+        }
+        //$scope.proSevDay=dates;//日期
+        //console.log(dates);
+    }

@@ -1,0 +1,15 @@
+{
+  "name": "wx",
+  "private": true,
+  "devDependencies": {
+    "babel": "^5.4.3",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-mask": "^1.0.0",
+    "gulp-riot": "^0.4.1",
+    "gulp-util": "3.0.6",
+    "jade": "1.11.0"
+  }
+}

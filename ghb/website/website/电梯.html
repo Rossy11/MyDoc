@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#menu{
+				width: 100%;
+				background-color: #fff;
+				list-style: none;
+				/*width: 900px;*/
+				height: 50px;
+				/*margin: 0 auto;*/
+				position: fixed;
+				/*left:50%;
+				margin-left: -450px;*/
+				padding-left: 230px;
+				top: 0;
+			}
+			#menu li{
+				float: left;
+				width: 150px;
+				height: 50px;
+				background-color: #ccc;
+				line-height: 50px;
+				text-align: center;
+				font-size: 40px;
+			}
+			#menu li:hover{
+				cursor: pointer;
+			}
+			#menu .active{
+				background-color:pink;
+			}
+			.con{
+				width: 100%;
+				background-color: pink;
+				font-size: 100px
+			}
+			.con:nth-child(2n){
+				width: 100%;
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="menu">
+			<li class="active">一楼</li>
+			<li>二楼</li>
+			<li>三楼</li>
+			<li>四楼</li>
+			<li>五楼</li>
+			<li>六楼</li>
+		</ul>
+		<div class="con"  style="margin-top: 50px;">1</div>
+		<div class="con">2</div>
+		<div class="con">3</div>
+		<div class="con">4</div>
+		<div class="con">5</div>
+		<div class="con">6</div>
+		
+		<script src="js/jquery-3.2.0.min.js"></script>
+		<script>
+			$(function(){
+				var winH=$(window).height()-50			
+				//设置con的高度
+				$('.con').css('height',winH);
+				$(document).scroll(function(){
+					var st=$(document).scrollTop();    //元素垂直滚动条的位置
+					var i=Math.floor(st/winH);     //获取当前元素的序列号
+					//获取当前拥有active的li并去掉class
+					$('#menu li.active').removeClass('active')
+					//第i个li添加active
+					$('#menu li').eq(i).addClass('active')
+				})
+				$('#menu li').click(function(){
+					//得到当前点击li的下标
+					var n=$(this).index('#menu li')
+					var st=winH*n
+//					$(document).scrollTop(st)
+					$('body,html').animate({scrollTop:st+'px'},500)					
+				})
+			})
+		</script>
+	</body>
+</html>

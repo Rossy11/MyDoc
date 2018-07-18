@@ -1,0 +1,5 @@
+.rainbow{animation: 6s rainbow infinite linear;}
+@keyframes rainbow {
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}

@@ -1,0 +1,10 @@
+.wx-group {
+    > .wx-title {
+        @include oneline($group-title-height, $group-title-size, $group-title-color);
+        margin-top: $group-title-padding;
+        padding: 0 $side-gap;
+        &:empty {
+            margin-top: 0;
+        }
+    }
+}

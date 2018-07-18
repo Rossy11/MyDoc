@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>基于less的html5仿qq播放器</title>
+    <!--<link rel="stylesheet/less" href="less/less.less" />-->
+    <link rel="stylesheet" href="demo.css" />
+    <!--<script src="jquery.qrcode.min.js.js"></script>-->
+    <script src="jquery-2.1.1.min.js"></script>
+    <!--<script src="song.js"></script>-->
+</head>
+<body>
+<div id="qqMain">
+    <!--音乐-->
+    <audio src="http://58.240.173.68/resource/record_file/76cdf9d893ef6a8b5e7222bd41135950ab62ad60.mp3" id="my_audio"></audio>
+    <!--cd播放机-->
+    <div class="img">
+        <img src="timg.jpg"/>
+        <span class="centerCircle"></span>
+    </div>
+
+    <div class="time">
+        <!--当前时间-->
+        <span class="now_time" id="now_time">00:00</span>
+        <!--总的时间-->
+        <span class="all_time" id="all_time">00:00</span>
+    </div>
+    <!--时间轴-->
+    <div class="time_progress">
+        <div class="progress">
+            <p class="bar" id="bar"></p>
+            <div class="btn" id="btn"></div>
+        </div>
+    </div>
+    <!--暂停或播放-->
+    <div class="btnpic" item="0"></div>
+</div>
+</body>
+<script type="text/javascript">
+    var my_audio = document.getElementById("my_audio");
+    var p_all=$(".progress").width();
+    var startX = startY = endX = endY = 0;
+    //暂停或播放
+    function playPause(){
+        if(my_audio.paused){
+            my_audio.play();
+            $(".img img").addClass("rainbow");
+        }else{
+            my_audio.pause();
+            $(".img img").removeClass("rainbow");
+        }
+    }
+    $(".btnpic").click(function(){
+        if($(this).attr("item")=="0"){
+            $(this).css("background-position","280px 0");
+            $(this).attr("item","1");
+        }else{
+            $(this).css("background-position","0 0");
+            $(this).attr("item","0");
+        }
+        playPause();
+    });
+    my_audio.ontimeupdate = function(){
+        //获取当前播放时间
+        document.getElementById("now_time").innerHTML = timeFormat(my_audio.currentTime);
+        //当前的长度
+        now_long=my_audio.currentTime/my_audio.duration*p_all;
+        $(".bar").css({width:now_long});
+        var btn_l=now_long-10+'px';
+        $(".btn").css({left:btn_l});
+        addListenTouch();
+    };
+    my_audio.onprogress = function(){
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+    };
+    var timeFormat = function(seconds){
+        var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+        var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+        return m+":"+s;
+    };
+    //手动拉拽进度条的部分
+    function addListenTouch(){
+        //var speed=$('.had-play');
+        var btn=document.getElementById("btn");
+        document.getElementById("btn").addEventListener("touchstart", touchStart, false);
+        document.getElementById("btn").addEventListener("touchmove", touchMove, false);
+        document.getElementById("btn").addEventListener("touchend", touchEnd, false);
+    }
+    function touchStart(e){
+        e.preventDefault();
+        var touch=e.touches[0];
+        startX=touch.pageX;
+        my_audio.pause();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+    }
+    function touchMove(e){//滑动
+        e.preventDefault();
+        var touch=e.touches[0];
+        x=touch.pageX-startX//滑动的距离
+        var widthBar=now_long+x;
+        $(".bar").css({width:widthBar});
+        if(widthBar<p_all){
+            $("#btn").css({left:widthBar-10+'px'});
+            $("#bar").css({width:widthBar});
+        }
+        var yu=widthBar/p_all*my_audio.duration;
+        document.getElementById("now_time").innerHTML = timeFormat(yu);
+    }
+    function touchEnd(e){//手指离开屏幕
+        e.preventDefault();//取消事件的默认动作
+        now_long=parseInt(btn.style.left);
+        var touch=e.touches[0];
+        var dragPaddingLeft=btn.style.left;
+        var change=dragPaddingLeft.replace("px","");
+        numDragpaddingLeft=parseInt(change);
+        var currentTimeNew=(numDragpaddingLeft/(p_all-20)*my_audio.duration);
+        console.log(currentTimeNew)
+        my_audio.currentTime = parseInt(currentTimeNew);
+        document.getElementById("now_time").innerHTML = timeFormat(currentTimeNew);
+        my_audio.play();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+    }
+</script>
+</html>
+

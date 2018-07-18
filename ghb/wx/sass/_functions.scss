@@ -1,0 +1,18 @@
+.wx-functions {
+    background: $color-white;
+    padding: 0 $side-gap;
+    > .wx-item {
+        padding: $function-padding-vertical 0;
+        &:not(:first-child) {
+            @include physical-border-top($color-line);
+        }
+        .wx-icon {
+            @include icon($function-icon-size);
+            margin: 0 $function-icon-gap;
+            float: left;
+        }
+        .wx-name {
+            @include oneline($function-name-height, $function-name-fontsize, $color-main);
+        }
+    }
+}
