@@ -1,3 +1,0 @@
-<view class="notLoginView">
-  <image src="../../image/popLogin.jpg" class="hintToLogin" mode="scaleToFill"></image>
-</view>
